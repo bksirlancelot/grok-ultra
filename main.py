@@ -80,5 +80,5 @@ def proxy(path):
         headers=[(n, v) for n, v in r.headers.items() if n.lower() not in ['content-encoding', 'content-length', 'transfer-encoding', 'connection']]
     )
 
-if name == "__main__":
+if __name__ == "__main__":
     app.run(host='0.0.0.0', port=10000)
