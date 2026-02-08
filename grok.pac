@@ -1,9 +1,8 @@
 function FindProxyForURL(url, host) {
-    // Проверяем, что запрос идет к X.ai или Twitter
+    // Исправленный синтаксис с логическим ИЛИ (||)
     if (shExpMatch(host, "*.x.ai") || shExpMatch(host, "x.ai") || shExpMatch(host, "*.twitter.com") || shExpMatch(host, "x.com") || shExpMatch(host, "*.x.com")) {
-        // Замени 'grok-cert.onrender.com' на реальное название твоего сервиса в Render, если оно другое!
+        // Обязательно проверь, что адрес Render правильный!
         return "PROXY grok-cert.onrender.com:443";
     }
-    // Весь остальной трафик пускаем напрямую, чтобы инет не сдох
     return "DIRECT";
 }
