@@ -1,7 +1,8 @@
 function FindProxyForURL(url, host) {
-    // Направляем всё, что связано с X, принудительно
-    if (shExpMatch(host, "*.x.ai") || shExpMatch(host, "x.ai") || shExpMatch(host, "api.x.ai") || shExpMatch(host, "*.x.com") || shExpMatch(host, "x.com")) {
-        return "PROXY grok-cert.onrender.com:443; PROXY grok-cert.onrender.com:80; DIRECT";
+    // Направляем все запросы, связанные с Гроком и X, на твой новый Render
+    if (shExpMatch(host, "*.x.ai") || shExpMatch(host, "x.ai") || shExpMatch(host, "*.twitter.com") || shExpMatch(host, "x.com")) {
+        return "PROXY grok-ultra.onrender.com:10000";
     }
+    // Весь остальной интернет пускаем напрямую
     return "DIRECT";
 }
